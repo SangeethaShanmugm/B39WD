@@ -102,25 +102,14 @@ getPrice();
 // };
 
 
-const {
-    name,    
-    networth,
-    power = "💸",
-    skill = [ "genius", "billionaire", "happy person", "philanthropist"],
-} = {
-    name: "Tony",
-    house: "🏠",
-    networth: "💰💰💰",
-    power: "🤖",
-    phrase: "💖 you 2022",
-};
+const { name, networth, power = "💸",skill = [ "genius", "billionaire", "happy person", "philanthropist"] } = { name: "Tony", house: "🏠",networth: "💰💰💰", power: "🤖",phrase: "💖 you 2022",};
 
 
 console.log(networth, power, skill);
 
 //array - index
-// object - keys
-
+// object - key
+//spread - copy to the new object 
 
 const avg = {
     name: "Tony",
@@ -133,4 +122,67 @@ const avg = {
 
 const avg1 = { ...avg,  nation: "US", power: "💸" };
 
-console.log(avg1);
+console.log(avg, avg1);
+// console.log("Avg:" , avg)
+// console.log("Avg1:" , avg1)
+
+const avg2 = {nation: "US", power: "💸",  ...avg };
+
+console.log(avg2);
+
+// shorthand
+//when age: age
+
+const age = 20;
+const batch = "B39WD";
+const marks = 90;
+
+//object shorthand - key & value must be same
+const student  = {
+        name: "Deeksha",
+        age,
+        batch,
+        score: marks,
+    };
+console.log(student);
+
+function printDetails(student) {
+
+    const { name, score, batch } = student;
+    
+    return name + " has got " + score + " and she belongs to " + batch;
+}
+
+console.log(printDetails(student))
+
+
+function printDetails1({ name, score, batch } ) {
+
+    // const { name, score, batch } = student;
+    
+    return name + " has got " + score + " and she belongs to " + batch;
+}
+
+console.log(printDetails1(student))
+
+
+
+//template literals = `` 
+// ${} - interpolation
+
+function printDetails2({ name, score, batch } ) {
+    
+    return `${name} has got ${score} and she belongs to ${batch}`;
+}
+
+console.log(printDetails2(student))
+
+
+// Arrow function + Template literals + Destructuring
+
+// export const printDetails3 = ({ name, score, batch } ) =>  `${name} has got ${score} and she belongs to ${batch}`;
+
+// console.log(printDetails3(student))
+
+
+
